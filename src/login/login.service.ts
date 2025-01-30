@@ -21,8 +21,6 @@ export class LoginService {
         const response = await axios.post(url, data, {headers});
 
         const apiResponse = response.data;
-        //console.log(response.data);
-        console.log("Respuesta API:", apiResponse.response.token, apiResponse.response.datos_persona.rut  )
 
         const userData = {
             status: apiResponse.status_code,
@@ -34,7 +32,7 @@ export class LoginService {
             foto: apiResponse.response.datos_persona.foto,
             perfiles: apiResponse.response.datos_persona.perfiles,
         };
-        console.log(userData);
+        
         return userData;
     }catch(error) {
         if(error.response){
